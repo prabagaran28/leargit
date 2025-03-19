@@ -1,30 +1,47 @@
-# leargit
+# learn 
 
-In this github repo we will see how to comoplie c progarm using gnu make
+In this githhub repo we how to use make file to complile the c program  
+the  
 
+**orderlist**  
+* item1  
+* item2  
+* item3  
+**unoderlist**  
+1. item11  
+2. item22  
+3. item33 
+    * inside  
+    * outside
+      * thr 
+    * efgrgf
 
-## make 
+## learnsomething 
 
-# bash 
-```bash
-gcc -Wall -std=c11 -c main.c -o main.o
-gcc -Wall -std=c11 -c a.c -o a.o
-gcc -Wall -std=c11 -c b.c -o b.o
-gcc -Wall -std=c11-c c.c -o c.o
-
-```
-### somethig 
+compling stages of c/c++ 
+1. preprossing 
+2. asemmbly 
+3. compliing
+4. linking 
 
 ```c
-#include<stdio.h>
-int main()
-{
-    printf("hello world\n");
-  return 0;
-}
-```
-# compling stages of c 
-* preprocessing 
-* assembling
-* compling 
-* linking 
+ #include<stdio.h>
+ 
+    int main()
+    {
+        printf("hello world \n");
+       retun 0;
+    }
+
+``` 
+
+__table of content :__
+
+<mark>highlight</mark>  
+[this is google link](https://google.com)
+
+- [] adcf  
+- [] adcf  
+- [] defr 
+- [] deef  
+- [x] asrf
