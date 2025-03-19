@@ -23,3 +23,8 @@ int main()
   return 0;
 }
 ```
+# compling stages of c 
+* preprocessing 
+* assembling
+* compling 
+* linking 
