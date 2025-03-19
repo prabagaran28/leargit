@@ -1,21 +1,30 @@
-INC = ./inc 
-SRC = ./src 
-CC=gcc
-OBJ= a.o b.o c.o d.o main.o
-CFLAGS = -Wall -std=c11 -c 
+# Directories
+INC = ./inc
+SRC = ./src
 
-#all : $(target)
+# Compiler
+CC = gcc
 
-target= final.exe 
+# Object files
+OBJ = a.o b.o c.o d.o main.o
 
-$(target):$(OBJ) 
+# Compiler flags
+CFLAGS = -Wall -std=c11 -c
+
+# Target executable
+target = final.exe
+
+# Default target
+all: $(target)
+
+# Link the object files to create the final executable
+$(target): $(OBJ)
 	$(CC) $^ -o $@
 
-%.o: %.c
-	$(CC) -I$(INC) $(CFLAGS) $< -o $@ 
+# Compile source files into object files
+%.o: $(SRC)/%.c
+	$(CC) -I$(INC) $(CFLAGS) $< -o $@
 
-
-
+# Clean up build artifacts
 clean:
-	rm -rf *.o 
-	rm $(target)
+	rm -rf *.o $(target)
