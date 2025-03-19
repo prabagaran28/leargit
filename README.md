@@ -45,4 +45,4 @@ __table of content :__
  | Green | Green | Yellow  |   
  | Green | Grenn | mango |
 
- <img src="./image.png.jpeg" alt="photo" />
+ ![photo](./image.png.jpeg)
