@@ -15,7 +15,7 @@ gcc -Wall -std=c11-c c.c -o c.o
 ```
 ### somethig 
 
-```
+```c
 #include<stdio.h>
 int main()
 {
