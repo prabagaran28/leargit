@@ -13,3 +13,13 @@ gcc -Wall -std=c11 -c b.c -o b.o
 gcc -Wall -std=c11-c c.c -o c.o
 
 ```
+### somethig 
+
+```
+#include<stdio.h>
+int main()
+{
+    printf("hello world\n");
+  return 0;
+}
+```
