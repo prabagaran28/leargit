@@ -34,14 +34,13 @@ compling stages of c/c++
     }
 
 ``` 
+- [  ] afcg
+
+
 
 __table of content :__
-
-<mark>highlight</mark>  
-[this is google link](https://google.com)
-
-- [] adcf  
-- [] adcf  
-- [] defr 
-- [] deef  
-- [x] asrf
+ 
+ | name | state | nextstate |   
+ | :------ | :-----|:--------|  
+ | Green | Green | Yellow  |   
+ | Green | Grenn | mango |
