@@ -1,30 +1,50 @@
-# Directories
-INC = ./inc
-SRC = ./src
+INC = ./inc 
 
-# Compiler
-CC = gcc
+SRC = src 
 
-# Object files
-OBJ = a.o b.o c.o d.o main.o
+CC = gcc 
 
-# Compiler flags
-CFLAGS = -Wall -std=c11 -c
+CFLAGS = -Wall -std=c11 -I$(INC) -c 
+OBJ = debug/a.o\
+    debug/b.o\
+	debug/c.o\
+	debug/d.o\
+	debug/main.o
 
-# Target executable
-target = final.exe
+RM =rm -rf 
 
-# Default target
-all: $(target)
+TARGET = final.exe 
 
-# Link the object files to create the final executable
-$(target): $(OBJ)
-	$(CC) $^ -o $@
+BUILD = debug
 
-# Compile source files into object files
-%.o: $(SRC)/%.c
-	$(CC) -I$(INC) $(CFLAGS) $< -o $@
+all: $(BUILD) $(TARGET) 
 
-# Clean up build artifacts
+$(TARGET):$(OBJ) 
+	$(CC) $^ -o $@ 
+	size $@ 
+
+
+debug/a.o: src/a.c 
+	$(CC) $(CFLAGS) $< -o $@  
+	 
+debug/b.o: src/b.c 
+	$(CC) $(CFLAGS) $< -o $@  
+
+debug/c.o:src/c.c 
+	$(CC) $(CFLAGS) $< -o $@
+
+debug/d.o:src/d.c 
+	$(CC) $(CFLAGS) $< -o $@ 
+
+debug/main.o:src/main.c 
+	$(CC) $(CFLAGS) $< -o $@
+
+
+
+
+$(BUILD):
+	mkdir -p $@ 
+
 clean:
-	rm -rf *.o $(target)
+	$(RM) $(BUILD) 
+	$(RM) $(TARGET)
