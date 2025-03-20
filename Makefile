@@ -1,50 +1,41 @@
-INC = ./inc 
+# Directories
+INC = ./inc
+SRC = ./src
+BULID_DIR = debug
 
-SRC = src 
+# Compiler and flags
+CC = gcc
+CFLAGS = -Wall -std=c11 -I$(INC) -c
 
-CC = gcc 
+# Object files (with paths relative to BULID_DIR)
+OBJ = $(addprefix $(BULID_DIR)/, a.o b.o c.o d.o main.o)
 
-CFLAGS = -Wall -std=c11 -I$(INC) -c 
-OBJ = debug/a.o\
-    debug/b.o\
-	debug/c.o\
-	debug/d.o\
-	debug/main.o
+# Remove command
+RM = rm -rf
 
-RM =rm -rf 
+# Target executable
+TARGET = final.exe
 
-TARGET = final.exe 
+# Default target
+all: $(BULID_DIR) $(TARGET)
 
-BUILD = debug
+# Rule to build the target executable
+$(TARGET): $(OBJ)
+	$(CC) $^ -o $@
 
-all: $(BUILD) $(TARGET) 
-
-$(TARGET):$(OBJ) 
-	$(CC) $^ -o $@ 
-	size $@ 
-
-
-debug/a.o: src/a.c 
-	$(CC) $(CFLAGS) $< -o $@  
-	 
-debug/b.o: src/b.c 
-	$(CC) $(CFLAGS) $< -o $@  
-
-debug/c.o:src/c.c 
+# Pattern rule for compiling .c files to .o files in BULID_DIR
+$(BULID_DIR)/%.o: $(SRC)/%.c
+	  
 	$(CC) $(CFLAGS) $< -o $@
 
-debug/d.o:src/d.c 
-	$(CC) $(CFLAGS) $< -o $@ 
+# Create the BULID_DIR if it doesn't exist
+$(BULID_DIR):
+	mkdir -p $@
 
-debug/main.o:src/main.c 
-	$(CC) $(CFLAGS) $< -o $@
-
-
-
-
-$(BUILD):
-	mkdir -p $@ 
-
+# Clean up build artifacts
 clean:
-	$(RM) $(BUILD) 
+	$(RM) $(BULID_DIR)
 	$(RM) $(TARGET)
+
+# Phony targets
+.PHONY: all clean
